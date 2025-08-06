@@ -8,7 +8,7 @@ import java.util.Map;
 public class App {
 
     public static void inprimirImpares(int[] numeros) {
-        int aux = numeros.length; // 1
+        int aux = numeros.length; // 2
         for(int i=0; i < aux; i++) {  // 1 + (n+1) + n
             if(numeros[i] % 2 != 0){  // 3n
                 System.out.println(i); // 1n
@@ -17,7 +17,17 @@ public class App {
         // algun cambio
     } 
     // segunda version con auxiliar
-    // f(n) = 1 + 1 + n + 1 + n + 3n + n = 3 + 6n
+    // f(n) = 2 + 1 + n + 1 + n + 3n + n = 4 + 6n
+    // f(n) = 4 + 6n
+    // f(n) <= c g(n)
+    // 4 + 6n <= 7n   => buscamos un valor superior en el termino dominante
+    // 4/n + 6n/n <= 7n/n
+    // 4/n + 6 <= 7
+    // buscamos valores de n que cumplan
+    // para n = 1 se cumple ?  no se cumple
+    // para n = 2 se cumple ?  no se cumple
+    // para n = 4 se cumple ? si    =>  f(n) pertence O(n) para n0 = 4 y c = 7
+
     // primera version, sin auxiliar
     // f(n) = 1 + 2(n+1) + n + 3n + 1n = 1 + 2n + 2 + n + 3n + n
     // f(n) = 3 + 7n 
