@@ -14,6 +14,7 @@ public class App {
                 System.out.println(i); // 1n
             }
         }
+        // algun cambio
     } 
     // segunda version con auxiliar
     // f(n) = 1 + 1 + n + 1 + n + 3n + n = 3 + 6n
