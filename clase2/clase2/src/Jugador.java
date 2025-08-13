@@ -1,12 +1,17 @@
-public class Jugador {
+public class Jugador<T> {
     private int id;
     private String nombre;
+    private T calificacion;
 
-    public Jugador(int id, String nombre) {
+    public Jugador() {}
+
+    public Jugador(int id, String nombre, T calificacion) {
         this.id = id;
         this.nombre = nombre;
+        this.calificacion = calificacion;
     }
 
+    
     public int getId() {
         return id;
     }
@@ -25,5 +30,15 @@ public class Jugador {
     @Override
     public String toString() {
         return "Jugador{id=" + id + ", nombre='" + nombre + "'}";
+    }
+
+
+    public T getCalificacion() {
+        return calificacion;
+    }
+
+
+    public void setCalificacion(T calificacion) {
+        this.calificacion = calificacion;
     }
 }
