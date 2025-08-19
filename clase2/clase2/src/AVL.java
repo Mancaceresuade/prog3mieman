@@ -96,4 +96,14 @@ public class AVL<T> {
         }
     }
 
+    public int getHeight() {
+        return getHeightRec(raiz);
+    }
+ 
+    private int getHeightRec(Nodo<T> nodo) {
+        if (nodo == null) return 0;
+        int leftHeight = getHeightRec(nodo.izq);
+        int rightHeight = getHeightRec(nodo.der);
+        return Math.max(leftHeight, rightHeight) + 1;
+    } // O(n)  a=2 k=0  b=2
 }
