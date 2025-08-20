@@ -1,4 +1,4 @@
-public class AVL<T> {
+public class AVL<T extends Comparable<T>> {
     
     Nodo<T> raiz;
 
@@ -50,11 +50,10 @@ public class AVL<T> {
             nuevo.elem = elem;
             return nuevo;
         }
-        @SuppressWarnings("unchecked")
-        Comparable<? super T> cmp = (Comparable<? super T>) elem;
-        if (cmp.compareTo(nodo.elem) < 0) {
+
+        if (elem.compareTo(nodo.elem) < 0) {
             nodo.izq = insertarRec(nodo.izq, elem);
-        } else if (cmp.compareTo(nodo.elem) > 0) {
+        } else if (elem.compareTo(nodo.elem) > 0) {
             nodo.der = insertarRec(nodo.der, elem);
         } else {
             return nodo; // No se permiten duplicados
@@ -63,25 +62,24 @@ public class AVL<T> {
         int balanceo = balance(nodo);
 
         // Rotaciones para balancear
-        if (balanceo > 1 && cmp.compareTo(nodo.izq.elem) < 0)
+        if (balanceo > 1 && elem.compareTo(nodo.izq.elem) < 0)
             return rotarDerecha(nodo);
 
-        if (balanceo < -1 && cmp.compareTo(nodo.der.elem) > 0)
+        if (balanceo < -1 && elem.compareTo(nodo.der.elem) > 0)
             return rotarIzquierda(nodo);
 
-        if (balanceo > 1 && cmp.compareTo(nodo.izq.elem) > 0) {
+        if (balanceo > 1 && elem.compareTo(nodo.izq.elem) > 0) {
             nodo.izq = rotarIzquierda(nodo.izq);
             return rotarDerecha(nodo);
         }
 
-        if (balanceo < -1 && cmp.compareTo(nodo.der.elem) < 0) {
+        if (balanceo < -1 && elem.compareTo(nodo.der.elem) < 0) {
             nodo.der = rotarDerecha(nodo.der);
             return rotarIzquierda(nodo);
         }
 
         return nodo;
     }
-
     // Método para imprimir el árbol en orden
     public void inOrden() {
         inOrdenRec(raiz);
@@ -106,4 +104,8 @@ public class AVL<T> {
         int rightHeight = getHeightRec(nodo.der);
         return Math.max(leftHeight, rightHeight) + 1;
     } // O(n)  a=2 k=0  b=2
+
+
+
+
 }

@@ -1,4 +1,4 @@
-public class Jugador<T> {
+public class Jugador<T extends Comparable<T>> implements Comparable<Jugador<T>>{
     private int id;
     private String nombre;
     private T calificacion;
@@ -40,5 +40,10 @@ public class Jugador<T> {
 
     public void setCalificacion(T calificacion) {
         this.calificacion = calificacion;
+    }
+
+  @Override
+    public int compareTo(Jugador<T> otroJugador) {
+        return this.calificacion.compareTo(otroJugador.getCalificacion());
     }
 }
