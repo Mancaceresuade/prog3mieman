@@ -2,6 +2,15 @@ public class App {
 
 public static boolean estaOrdenada(char[] secuencia) {
 
+    public static void imprimirPartidos(String[] equipos) {
+        for (int i = 0; i < equipos.length; i++) { // 3+4n
+            for (int j = i + 1; j < equipos.length; j++) { // gauss n(n-1)/2 = 4(4-1)/2= 6
+                // no va en el parcial, gauss
+                System.out.println(equipos[i] + "-" + equipos[j]);
+            }
+        }
+    }
+
     // Método recursivo usando divide y vencerás
 	public static boolean estaOrdenadaDivideVenceras(String secuencia, int inicio, int fin) {
 		if (fin - inicio <= 1) {
