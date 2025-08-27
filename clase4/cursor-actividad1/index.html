@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Red Social - Seguidores (Grafo con Lista de Adyacencia)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Red Social — Sistema de Seguidores</h1>
+        <p class="subtitle">Grafo representado con lista de adyacencia</p>
+        <nav style="margin-top:12px;">
+            <a href="index.html"><strong>Lista de adyacencia (JS)</strong></a>
+            <a href="matriz.html" style="margin-left:8px;">Matriz de adyacencia (Java)</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <h2>Usuarios</h2>
+            <form id="form-add-user" class="form-inline" autocomplete="off">
+                <label for="user-name">Nuevo usuario</label>
+                <input id="user-name" name="user-name" type="text" placeholder="p.ej. ana" required>
+                <button type="submit">Agregar</button>
+            </form>
+
+            <div class="list-block">
+                <h3>Lista de usuarios</h3>
+                <ul id="users-list" class="list"></ul>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Relaciones (seguir / dejar de seguir)</h2>
+            <form id="form-follow" class="form-grid" autocomplete="off">
+                <div class="field">
+                    <label for="follower">Seguidor (quien sigue)</label>
+                    <input id="follower" name="follower" type="text" placeholder="p.ej. ana" required>
+                </div>
+                <div class="field">
+                    <label for="followee">Seguido (a quien sigue)</label>
+                    <input id="followee" name="followee" type="text" placeholder="p.ej. bob" required>
+                </div>
+                <div class="actions">
+                    <button type="submit">Seguir</button>
+                    <button type="button" id="btn-unfollow" class="secondary">Dejar de seguir</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Consultas</h2>
+            <form id="form-query" class="form-grid" autocomplete="off">
+                <div class="field">
+                    <label for="query-user">Usuario</label>
+                    <input id="query-user" name="query-user" type="text" placeholder="p.ej. ana" required>
+                </div>
+                <div class="actions">
+                    <button type="button" id="btn-following">Ver a quién sigue</button>
+                    <button type="button" id="btn-followers" class="secondary">Ver sus seguidores</button>
+                    <button type="button" id="btn-mutuals" class="secondary">Ver seguimientos mutuos</button>
+                </div>
+            </form>
+
+            <div class="results">
+                <div>
+                    <h3>A quién sigue</h3>
+                    <ul id="list-following" class="list"></ul>
+                </div>
+                <div>
+                    <h3>Sus seguidores</h3>
+                    <ul id="list-followers" class="list"></ul>
+                </div>
+                <div>
+                    <h3>Mutuos</h3>
+                    <ul id="list-mutuals" class="list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Representación (Lista de Adyacencia)</h2>
+            <div class="adjacency">
+                <div>
+                    <h3>Siguiendo (salientes)</h3>
+                    <pre id="adj-out" class="code"></pre>
+                </div>
+                <div>
+                    <h3>Seguidores (entrantes)</h3>
+                    <pre id="adj-in" class="code"></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <small>Actividad: Grafo con lista de adyacencia — Seguidores</small>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+<style>
+/* Fallback mínimo si no carga styles.css (opcional) */
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 0; }
+.panel { padding: 16px; }
+</style>
+</html>
+
+

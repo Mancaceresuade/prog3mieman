@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grafo con Matriz de Adyacencia (Java)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Grafo — Matriz de Adyacencia (Java)</h1>
+        <p class="subtitle">Operaciones: inicializar, agregar/eliminar arista, verificar, listar adyacentes, grados</p>
+        <nav style="margin-top:12px;">
+            <a href="index.html" style="margin-right:8px;">Lista de adyacencia (JS)</a>
+            <a href="matriz.html"><strong>Matriz de adyacencia (Java)</strong></a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="panel" style="grid-column: 1 / -1;">
+            <h2>Descripción</h2>
+            <p>
+                Esta implementación usa una <strong>matriz de adyacencia</strong> para un grafo dirigido.
+                Permite: inicialización, <em>agregarArista</em>, <em>eliminarArista</em>, <em>existeArista</em>,
+                <em>listarAdyacentes</em>, <em>gradoDeSalida</em> y <em>gradoDeEntrada</em>.
+            </p>
+            <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+                <a href="GraphMatrix.java" download>
+                    <button>Descargar GraphMatrix.java</button>
+                </a>
+                <button class="secondary" id="btn-copy">Copiar código</button>
+            </div>
+        </section>
+
+        <section class="panel" style="grid-column: 1 / -1;">
+            <h2>Código Java</h2>
+            <pre id="code" class="code"></pre>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <small>Menú: Usa los enlaces de la cabecera para cambiar de implementación.</small>
+    </footer>
+
+    <script>
+    // Carga y muestra el archivo Java en el bloque <pre>
+    fetch('GraphMatrix.java').then(r => r.text()).then(txt => {
+        document.getElementById('code').textContent = txt;
+    }).catch(() => {
+        document.getElementById('code').textContent = '// No se pudo cargar GraphMatrix.java';
+    });
+
+    document.getElementById('btn-copy').addEventListener('click', async () => {
+        const code = document.getElementById('code').textContent;
+        try { await navigator.clipboard.writeText(code); alert('Código copiado'); } catch {
+            alert('No se pudo copiar');
+        }
+    });
+    </script>
+</body>
+</html>
+
+
