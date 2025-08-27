@@ -1,7 +1,5 @@
 public class App {
 
-public static boolean estaOrdenada(char[] secuencia) {
-
     public static void imprimirPartidos(String[] equipos) {
         for (int i = 0; i < equipos.length; i++) { // 3+4n
             for (int j = i + 1; j < equipos.length; j++) { // gauss n(n-1)/2 = 4(4-1)/2= 6
