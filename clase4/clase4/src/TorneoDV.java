@@ -1,7 +1,7 @@
 public class TorneoDV {
 
     public static void main(String[] args) {
-        int[][] fixture = generarFixture(8);
+        int[][] fixture = generarFixture(4);
         imprimirFixture(fixture);        
     }
 

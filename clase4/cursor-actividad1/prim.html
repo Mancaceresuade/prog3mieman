@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Red de distribución eléctrica — Prim (MST)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Red de distribución eléctrica</h1>
+        <p class="subtitle">Lista de adyacencia + Algoritmo de Prim (Árbol de Recubrimiento Mínimo)</p>
+        <nav style="margin-top:12px;">
+            <a href="index.html">Lista de adyacencia (JS)</a>
+            <a href="matriz.html" style="margin-left:8px;">Matriz de adyacencia (Java)</a>
+            <a href="prim.html" style="margin-left:8px;"><strong>Prim (MST)</strong></a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <h2>Estaciones</h2>
+            <form id="form-node" class="form-inline" autocomplete="off">
+                <label for="node-name">Nueva estación</label>
+                <input id="node-name" type="text" placeholder="p.ej. CiudadA" required>
+                <button type="submit">Agregar</button>
+            </form>
+            <div class="list-block">
+                <h3>Lista de estaciones</h3>
+                <ul id="nodes-list" class="list"></ul>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Conexiones (aristas no dirigidas con costo)</h2>
+            <form id="form-edge" class="form-grid" autocomplete="off">
+                <div class="field">
+                    <label for="edge-u">Estación A</label>
+                    <input id="edge-u" type="text" placeholder="CiudadA" required>
+                </div>
+                <div class="field">
+                    <label for="edge-v">Estación B</label>
+                    <input id="edge-v" type="text" placeholder="CiudadB" required>
+                </div>
+                <div class="field">
+                    <label for="edge-w">Costo</label>
+                    <input id="edge-w" type="number" step="0.01" min="0" placeholder="100.0" required>
+                </div>
+                <div class="actions">
+                    <button type="submit">Agregar conexión</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Calcular Árbol de Recubrimiento Mínimo (Prim)</h2>
+            <form id="form-prim" class="form-grid" autocomplete="off">
+                <div class="field">
+                    <label for="start-node">Nodo inicial (opcional)</label>
+                    <input id="start-node" type="text" placeholder="Si se omite, se usa el primero">
+                </div>
+                <div class="actions">
+                    <button type="submit">Calcular MST</button>
+                </div>
+            </form>
+            <div class="results">
+                <div>
+                    <h3>Conexiones del MST</h3>
+                    <ul id="mst-list" class="list"></ul>
+                </div>
+                <div>
+                    <h3>Costo total</h3>
+                    <pre id="mst-cost" class="code"></pre>
+                </div>
+                <div>
+                    <h3>Grafo (adyacencia)</h3>
+                    <pre id="adjacency" class="code"></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <small>Agrega estaciones y conexiones con costo, luego ejecuta Prim.</small>
+    </footer>
+
+    <script src="prim.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección óptima de proyectos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Selección óptima de proyectos</h1>
+        <section class="card">
+            <form id="project-form">
+                <div class="field">
+                    <label for="costs">Costos (separados por coma)</label>
+                    <input id="costs" name="costs" type="text" placeholder="e.g., 3, 4, 7, 8, 9">
+                </div>
+                <div class="field">
+                    <label for="benefits">Beneficios (separados por coma)</label>
+                    <input id="benefits" name="benefits" type="text" placeholder="e.g., 4, 5, 10, 11, 13">
+                </div>
+                <div class="field">
+                    <label for="budget">Presupuesto</label>
+                    <input id="budget" name="budget" type="number" min="0" step="1" placeholder="e.g., 17">
+                </div>
+                <div class="actions">
+                    <button type="button" id="btn-example">Cargar ejemplo</button>
+                    <button type="submit">Calcular selección óptima</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="results" class="card hidden">
+            <h2>Resultado</h2>
+            <div id="summary"></div>
+            <div id="details"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
+
+
