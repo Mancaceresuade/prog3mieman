@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class App {
+public class Mochila {
     static ArrayList<ObjetosMochila> resultado = new ArrayList<>();
     static double mejorValor = 0.0;
 
